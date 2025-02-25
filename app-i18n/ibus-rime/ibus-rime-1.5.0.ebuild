@@ -12,20 +12,20 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 
 RDEPEND="
-        app-i18n/ibus
-        app-i18n/librime
-        app-i18n/rime-data
-        x11-libs/libnotify"
+	app-i18n/ibus
+	app-i18n/librime
+	app-i18n/rime-data
+	x11-libs/libnotify"
 DEPEND="${RDEPEND}"
 BDEPEND="
-        dev-build/cmake
-        virtual/pkgconfig"
+	dev-build/cmake
+	virtual/pkgconfig"
 
 src_prepare() {
-        sed -i \
-                -e "/^libexecdir/s:/lib:/libexec:" \
-                -e "/^[[:space:]]*PREFIX/s:/usr:${EPREFIX}/usr:" \
-                -e "s/ make/ \$(MAKE)/" Makefile || die
+	sed -i \
+		-e "/^libexecdir/s:/lib:/libexec:" \
+		-e "/^[[:space:]]*PREFIX/s:/usr:${EPREFIX}/usr:" \
+		-e "s/ make/ \$(MAKE)/" Makefile || die
 
-        default
+	default
 }
